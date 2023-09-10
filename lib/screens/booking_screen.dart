@@ -9,10 +9,18 @@ import 'package:booking_app/widgets/app_bar.dart';
 import 'package:booking_app/widgets/button.dart';
 import 'package:booking_app/widgets/buyer_info.dart';
 import 'package:booking_app/utils/tour_data.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class BookingScreen extends StatelessWidget {
+class BookingScreen extends StatefulWidget {
+  BookingScreen({Key? key}) : super(key: key);
+
+  @override
+  _BookingScreenState createState() => _BookingScreenState();
+}
+
+class _BookingScreenState extends State<BookingScreen> {
   Future<TourData> fetchTourData() async {
     final response = await http.get(Uri.parse(
         'https://run.mocky.io/v3/e8868481-743f-4eb2-a0d7-2bc4012275c8'));
@@ -25,7 +33,9 @@ class BookingScreen extends StatelessWidget {
     }
   }
 
-  const BookingScreen({super.key});
+  final GlobalKey<FormState> touristFormKey = GlobalKey<FormState>();
+  List<GlobalKey<FormState>> formKeys = []; // Список GlobalKey<FormState>
+  int touristsCount = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +96,38 @@ class BookingScreen extends StatelessWidget {
                       nutrition: tourData.nutrition,
                       tourDateStop: tourData.tourDateStop),
                   BuyerInfo(),
-                  TouristInput(),
+                  Column(
+                    children: [
+                      for (var formKey in formKeys)
+                        TouristInput(formKey: formKey),
+                    ],
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 8),
+                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    decoration: BoxDecoration(
+                        color: AppColor.background,
+                        borderRadius: BorderRadius.circular(12)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Добавить туриста',
+                          style: TextStyle(
+                              fontSize: 22, fontWeight: FontWeight.w500),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              touristsCount+=1;
+                              formKeys.add(GlobalKey<FormState>());
+                            });
+                          },
+                          icon: SvgPicture.asset("assets/Icons.svg"),
+                        )
+                      ],
+                    ),
+                  ),
                   PriceCalculation(
                       tour_price: tourData.tourPrice,
                       fuel_charge: tourData.fuelCharge,
@@ -105,17 +146,29 @@ class BookingScreen extends StatelessWidget {
                         ),
                         Container(
                           padding:
-                              EdgeInsets.only(top: 12, left: 25, right: 25),
+                          EdgeInsets.only(top: 12, left: 25, right: 25),
                           child: CustomButton(
-                              text:
-                                  'Оплатить ${(tourData.tourPrice + tourData.fuelCharge + tourData.serviceCharge).toString().substring(0, 3)}  ${(tourData.tourPrice + tourData.fuelCharge + tourData.serviceCharge).toString().substring(3, 6)} ₽',
-                              onPressed: () {
+                            text:
+                            'Оплатить ${(tourData.tourPrice + tourData.fuelCharge + tourData.serviceCharge).toString().substring(0, 3)}  ${(tourData.tourPrice + tourData.fuelCharge + tourData.serviceCharge).toString().substring(3, 6)} ₽',
+                            onPressed: () {
+                              bool isValid = true;
+                              for (var key in formKeys) {
+                                if (!key.currentState!.validate()) {
+                                  isValid = false;
+                                }
+                              }
+
+                              if (isValid) {
                                 Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            BookingCompleteScreen()));
-                              }),
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        BookingCompleteScreen(),
+                                  ),
+                                );
+                              }
+                            },
+                          ),
                         )
                       ],
                     ),
