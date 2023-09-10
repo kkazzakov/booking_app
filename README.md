@@ -1,16 +1,27 @@
-# booking_app
+# Прототип приложения для бронирования отеля
 
-A new Flutter project.
+![Главный экран](https://drive.google.com/file/d/19UAx9IHroRGdpWYN9tddSTJFdFOAY4Va/view?usp=sharing)
+![Экран выбора номера](https://drive.google.com/file/d/19Vp2rk55W4qkf77hQQ_IqMM16A3pO6OC/view?usp=sharing)
+![Экран с информацией о бронировании](https://drive.google.com/file/d/19cAWt-Q_SpG2aCnbqcJSil3Gut9Sfxdt/view?usp=sharing)
+![Экран успешного бронирования](https://drive.google.com/file/d/19mBAiMEC2uqjioN9UMA5OZiysydwNHr6/view?usp=sharing)
 
-## Getting Started
+Прототип приложения для бронирования отеля - это демонстрационное приложение, разработанное в рамках обучения Flutter и создания мобильных приложений. Приложение предоставляет пользователю информацию о гостинице, включая изображения, рейтинг, описание и цены.
 
-This project is a starting point for a Flutter application.
+## Основные возможности
 
-A few resources to get you started if this is your first Flutter project:
+- Просмотр изображений гостиницы.
+- Просмотр рейтинга гостиницы.
+- Отображение информации о гостинице, такой как название, адрес и цены.
+- Подробное описание гостиницы и её особенностей.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Получение данных
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Данные для приложения берутся из интернета с использованием JSON-запроса. Используется сторонний веб-сервис для получения информации о гостинице. Данные загружаются и обрабатываются в формате JSON, а затем отображаются в пользовательском интерфейсе приложения.
+
+## Технологии
+
+- [Flutter](https://flutter.dev/): Фреймворк для создания кроссплатформенных мобильных приложений.
+- [Dart](https://dart.dev/): Язык программирования, используемый в Flutter.
+- HTTP-запросы для взаимодействия с внешним веб-сервисом.
+
+
