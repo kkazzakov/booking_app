@@ -1,5 +1,5 @@
 # Прототип приложения для бронирования отеля
-
+[Ссылка на видео-демонстрацию](https://drive.google.com/file/d/19y4mkx5K_LxigF5WkefIkWsYxFlnZZ-F/view?usp=sharing)
 ![Главный экран](https://drive.google.com/file/d/19UAx9IHroRGdpWYN9tddSTJFdFOAY4Va/view?usp=sharing)
 ![Экран выбора номера](https://drive.google.com/file/d/19Vp2rk55W4qkf77hQQ_IqMM16A3pO6OC/view?usp=sharing)
 ![Экран с информацией о бронировании](https://drive.google.com/file/d/19cAWt-Q_SpG2aCnbqcJSil3Gut9Sfxdt/view?usp=sharing)
