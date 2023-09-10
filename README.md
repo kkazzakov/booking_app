@@ -3,7 +3,7 @@
 ![Главный экран](https://drive.google.com/file/d/19UAx9IHroRGdpWYN9tddSTJFdFOAY4Va/view?usp=sharing)
 ![Экран выбора номера](https://drive.google.com/file/d/19Vp2rk55W4qkf77hQQ_IqMM16A3pO6OC/view?usp=sharing)
 ![Экран с информацией о бронировании](https://drive.google.com/file/d/19cAWt-Q_SpG2aCnbqcJSil3Gut9Sfxdt/view?usp=sharing)
-![Экран успешного бронирования](https://drive.google.com/file/d/19mBAiMEC2uqjioN9UMA5OZiysydwNHr6/view?usp=sharing)
+![Экран успешного бронирования](https://ibb.co/8rH6qhL)
 
 Прототип приложения для бронирования отеля - это демонстрационное приложение, разработанное в рамках обучения Flutter и создания мобильных приложений. Приложение предоставляет пользователю информацию о гостинице, включая изображения, рейтинг, описание и цены.
 
